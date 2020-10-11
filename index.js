@@ -1,7 +1,7 @@
-const Discord = require('discord.js');
-const { prefix, token, tables } = require('./config.json');
+import { Client } from 'discord.js';
+import { prefix, token, tables } from './config.json';
 
-const client = new Discord.Client();
+const client = new Client();
 
 client.once('ready', () => {
   // eslint-disable-next-line no-console
