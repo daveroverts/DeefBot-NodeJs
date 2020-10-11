@@ -1,12 +1,10 @@
-import { Client } from 'discord.js';
-import { prefix, token, tables } from './config.json';
+const Discord = require('discord.js');
+const { prefix, token, tables } = require('./config.json');
 
-const client = new Client();
+const client = new Discord.Client();
 
-client.once('ready', () => {
-  // eslint-disable-next-line no-console
-  console.log(`Logged in as ${client.user.tag}!`);
-});
+// eslint-disable-next-line no-console
+client.once('ready', () => console.log(`Logged in as ${client.user.tag}!`));
 
 client.login(token);
 
