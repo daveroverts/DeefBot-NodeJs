@@ -1,12 +1,17 @@
 const Discord = require('discord.js');
-const { prefix, token, tables } = require('./config.json');
+
+require('dotenv').config();
 
 const client = new Discord.Client();
+const prefix = process.env.PREFIX;
+const tables = ['(╯°□°）╯︵ ┻━┻', '┬──┬﻿ ¯\\\\_(ツ)', '┻━┻ ︵ヽ(`Д´)ﾉ︵﻿ ┻━┻', '┻━┻ ︵﻿ ¯\\\\(ツ)/¯ ︵ ┻━┻', '┬─┬ノ( º _ ºノ)',
+  '(ノಠ益ಠ)ノ彡┻━┻'];
 
-// eslint-disable-next-line no-console
-client.once('ready', () => console.log(`Logged in as ${client.user.tag}!`));
-
-client.login(token);
+client.once('ready', () => {
+  client.user.setActivity('Deef breaking stuff', { type: 'WATCHING' });
+  // eslint-disable-next-line no-console
+  console.log(`Logged in as ${client.user.tag}!`);
+});
 
 client.on('message', (message) => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -26,3 +31,5 @@ client.on('message', (message) => {
     default:
   }
 });
+
+client.login();
