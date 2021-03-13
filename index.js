@@ -1,14 +1,24 @@
 const Discord = require('discord.js');
+const cron = require('node-cron');
+const tables = require('./data/tables.json');
+const activities = require('./data/activities.json');
 
 require('dotenv').config();
 
 const client = new Discord.Client();
 const prefix = process.env.PREFIX;
-const tables = ['(╯°□°）╯︵ ┻━┻', '┬──┬﻿ ¯\\\\_(ツ)', '┻━┻ ︵ヽ(`Д´)ﾉ︵﻿ ┻━┻', '┻━┻ ︵﻿ ¯\\\\(ツ)/¯ ︵ ┻━┻', '┬─┬ノ( º _ ºノ)',
-  '(ノಠ益ಠ)ノ彡┻━┻'];
+
+function setActivity() {
+  const activity = activities[Math.floor(Math.random() * activities.length)];
+  client.user.setActivity(activity.message, { type: activity.type });
+}
+
+cron.schedule('* 0 * * *', () => {
+  setActivity();
+});
 
 client.once('ready', () => {
-  client.user.setActivity('Deef breaking stuff', { type: 'WATCHING' });
+  setActivity();
   // eslint-disable-next-line no-console
   console.log(`Logged in as ${client.user.tag}!`);
 });

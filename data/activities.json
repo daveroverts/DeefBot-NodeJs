@@ -1,0 +1,14 @@
+[
+    {
+        "type": "PLAYING",
+        "message": "The waiting game"
+    },
+    {
+        "type": "WATCHING",
+        "message": "Deef break code again"
+    },
+    {
+        "type": "LISTENING",
+        "message": "Deef being Deef"
+    }
+]

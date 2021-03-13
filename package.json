@@ -1,6 +1,6 @@
 {
   "name": "deefbot-nodejs",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Some Discord bot that can do things, created in Node.js",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.5.1",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "node-cron": "^3.0.0"
   },
   "devDependencies": {
     "eslint": "^7.21.0",
