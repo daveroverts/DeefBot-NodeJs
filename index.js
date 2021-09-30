@@ -8,6 +8,10 @@ require('dotenv').config();
 const client = new Discord.Client();
 const prefix = process.env.PREFIX;
 
+process.on('SIGINT', () => {
+  process.exit(1);
+});
+
 function setActivity() {
   const activity = activities[Math.floor(Math.random() * activities.length)];
   client.user.setActivity(activity.message, { type: activity.type });
